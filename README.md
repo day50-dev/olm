@@ -1,30 +1,28 @@
 # singleline
 
-`singleline` is a compiler that transforms a simple text-based specification file into fully functional Model Context Protocol (MCP) server definitions in either Python or TypeScript.
+A compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
 
-It allows you to define shell-based tools using a concise "single-line" syntax, removing the boilerplate of manually writing server wrappers for every CLI utility you want to expose to an LLM.
+No boilerplate. No wrappers. Just `name:command` and go.
 
-## 🚀 Features
+## Features
 
-- **Declarative Tooling**: Define tools as simple `name:command` pairs.
-- **Parameter Extraction**: Automatically detects `{placeholders}` in your commands and converts them into MCP tool arguments.
-- **Multi-language Support**: Generate code for both `FastMCP` (Python) and the `@modelcontextprotocol/sdk` (TypeScript).
-- **Documentation**: Support for inline and standalone descriptions using the `#!` prefix.
+- Declarative tool definitions: `name:command` pairs
+- Parameters extracted automatically from `{placeholders}`
+- Generates Python (`FastMCP`) or TypeScript (`@modelcontextprotocol/sdk`)
+- Inline or standalone descriptions via the `#!` prefix
 
-## 🛠 Installation
+## Installation
 
-Ensure you have Python 3.x installed. You will need the `jinja2` library for code generation:
+Python 3.x and `jinja2`:
 
 ```bash
 pip install jinja2
 ```
 
-## 📖 Usage
+## Usage
 
-### 1. Create a `tools.txt` spec
-Create a text file where each line represents a tool. Use `{variable}` for parameters and `#!` for descriptions.
+### 1. Write a `tools.txt`
 
-**Example `tools.txt`:**
 ```text
 #! List files in a directory
 ls:ls -la {path}
@@ -36,44 +34,37 @@ uptime:uptime
 bash: /usr/bin/env bash -c "{command}"
 ```
 
-### 2. Compile to Python
-To generate a Python server using `FastMCP`:
+### 2. Compile
 
+Python:
 ```bash
 python singleline.py --mcp tools.txt --lang python > tools.py
 ```
 
-### 3. Compile to TypeScript
-To generate a TypeScript server:
-
+TypeScript:
 ```bash
 python singleline.py --mcp tools.txt --lang typescript > tools.ts
 ```
 
-## ⚙️ Command Line Arguments
+## Command Line Arguments
 
-| Argument | Short | Required | Description |
-|-----------|------|----------|-------------|
-| `--mcp` | | Yes | Path to the `tools.txt` specification file. |
-| `--lang` | | Yes | Target language: `python` or `typescript`. |
-| `--output`| `-o` | No | Output file path (defaults to stdout). |
+| Argument    | Short | Required | Description                         |
+|-------------|-------|----------|-------------------------------------|
+| `--mcp`     |       | Yes      | Path to the spec file               |
+| `--lang`    |       | Yes      | `python` or `typescript`            |
+| `--output`  | `-o`  | No       | Output file (defaults to stdout)    |
 
-## 🔍 Spec Format Details
+## Spec Format
 
-- **Tool Definition**: `name:command`
-- **Parameters**: Any word inside curly braces `{like_this}` in the command string becomes a tool input.
-- **Descriptions**: 
-    - **Inline**: `name:command #! Description here`
-    - **Standalone**: Place `#! Description here` on the line immediately preceding the tool definition.
-- **Comments**: Lines starting with `#` (that are not `#!`) are ignored.
+- **Tool**: `name:command`
+- **Parameters**: `{like_this}` in the command string becomes a tool input
+- **Descriptions**:
+  - Inline: `name:command #! Description here`
+  - Standalone: `#! Description here` on the line before the tool
+- **Comments**: Lines starting with `#` (but not `#!`) are ignored
 
-## 📦 Requirements for Generated Code
+## Generated Code Requirements
 
-### Python
-The generated `tools.py` requires:
-- `mcp` (FastMCP)
+Python: `mcp` (FastMCP)
 
-### TypeScript
-The generated `tools.ts` requires:
-- `@modelcontextprotocol/sdk`
-- Node.js environment with `child_process` and `util` modules.
+TypeScript: `@modelcontextprotocol/sdk`, Node.js with `child_process` and `util`
