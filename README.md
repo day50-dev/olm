@@ -2,7 +2,7 @@
 <img width="288" alt="singleline" src="https://github.com/user-attachments/assets/eb6cd032-be1c-48c8-845a-b0742023d298" />
 </p>
 
-A compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
+**Singleline** is a compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
 
 No boilerplate. No wrappers. Just `name:command` and go.
 
