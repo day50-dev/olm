@@ -38,12 +38,12 @@ bash: /usr/bin/env bash -c "{command}"
 
 Python:
 ```bash
-singleline --mcp tools.txt --lang python > tools.py
+olm --mcp tools.txt --lang python > tools.py
 ```
 
 TypeScript:
 ```bash
-singleline --mcp tools.txt --lang typescript > tools.ts
+olm --mcp tools.txt --lang typescript > tools.ts
 ```
 
 ## Command Line Arguments
