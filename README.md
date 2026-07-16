@@ -15,10 +15,8 @@ No boilerplate. No wrappers. Just `name:command` and go.
 
 ## Installation
 
-Python 3.x and `jinja2`:
-
 ```bash
-pip install jinja2
+pip install onelinemcp
 ```
 
 ## Usage
@@ -40,12 +38,12 @@ bash: /usr/bin/env bash -c "{command}"
 
 Python:
 ```bash
-python singleline.py --mcp tools.txt --lang python > tools.py
+singleline --mcp tools.txt --lang python > tools.py
 ```
 
 TypeScript:
 ```bash
-python singleline.py --mcp tools.txt --lang typescript > tools.ts
+singleline --mcp tools.txt --lang typescript > tools.ts
 ```
 
 ## Command Line Arguments

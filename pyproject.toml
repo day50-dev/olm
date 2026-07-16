@@ -1,5 +1,5 @@
 [project]
-name = "singleline"
+name = "onelinemcp"
 version = "0.1.0"
 description = "Compile a tools.txt spec into MCP tool definitions"
 readme = "README.md"
