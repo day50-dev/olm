@@ -206,7 +206,7 @@ def main():
         description="Compile a single-line spec into an MCP"
     )
     parser.add_argument("spec", help="Path to the single-line spec file")
-    parser.add_argument("-l", "--lang", required=True, choices=["py", "ts"], help="Output language")
+    parser.add_argument("-l", "--lang", default="py", choices=["py", "ts"], help="Output language (default: py)")
     parser.add_argument(
         "--output", "-o", help="Output file (default: stdout)"
     )

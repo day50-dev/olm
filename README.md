@@ -26,25 +26,31 @@ bash: /usr/bin/env bash -c "{command}"
 - Generates Python (`FastMCP`) or TypeScript (`@modelcontextprotocol/sdk`)
 - Inline or standalone descriptions via the `#!` prefix
 
+## Quick Start
+
+```bash
+python <(olm example.olm)
+```
+
 
 ### 2. Compile
 
 Python:
 ```bash
-olm --mcp tools.txt -l py > tools.py
+olm tools.txt -l py > tools.py
 ```
 
 TypeScript:
 ```bash
-olm --mcp tools.txt -l ts > tools.ts
+olm tools.txt -l ts > tools.ts
 ```
 
 ## Command Line Arguments
 
 | Argument    | Short | Required | Description                         |
 |-------------|-------|----------|-------------------------------------|
-| `--mcp`     | `-m`  | Yes      | Path to the spec file               |
-| `--lang`    | `-l`  | Yes      | `py` or `ts`                        |
+| `spec`      |       | Yes      | Path to the spec file               |
+| `--lang`    | `-l`  | No       | `py` or `ts` (default: py)          |
 | `--output`  | `-o`  | No       | Output file (defaults to stdout)    |
 
 ## Spec Format
