@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from singleline import main
+from olm import main
 
 if __name__ == "__main__":
     main()
