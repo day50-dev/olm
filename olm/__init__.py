@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-singleline — Compile a tools.txt spec into MCP tool definitions.
+olm — Compile a tools.txt spec into MCP tool definitions.
 
 Usage:
-    singleline --mcp tools.txt --lang python > tools.py
-    singleline --mcp tools.txt --lang typescript > tools.ts
+    olm --mcp tools.txt --lang python > tools.py
+    olm --mcp tools.txt --lang typescript > tools.ts
 """
 
 import argparse
@@ -99,7 +99,7 @@ PYTHON_TEMPLATE = '''\
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("singleline-tools")
+mcp = FastMCP("olm-tools")
 
 {% for tool in tools %}
 
@@ -136,7 +136,7 @@ import util from "util";
 const execAsync = util.promisify(spawn);
 
 export const server = new McpServer({
-  name: "singleline-tools",
+  name: "olm-tools",
   version: "1.0.0",
 });
 
