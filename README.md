@@ -31,20 +31,20 @@ bash: /usr/bin/env bash -c "{command}"
 
 Python:
 ```bash
-olm --mcp tools.txt --lang python > tools.py
+olm --mcp tools.txt -l py > tools.py
 ```
 
 TypeScript:
 ```bash
-olm --mcp tools.txt --lang typescript > tools.ts
+olm --mcp tools.txt -l ts > tools.ts
 ```
 
 ## Command Line Arguments
 
 | Argument    | Short | Required | Description                         |
 |-------------|-------|----------|-------------------------------------|
-| `--mcp`     |       | Yes      | Path to the spec file               |
-| `--lang`    |       | Yes      | `python` or `typescript`            |
+| `--mcp`     | `-m`  | Yes      | Path to the spec file               |
+| `--lang`    | `-l`  | Yes      | `py` or `ts`                        |
 | `--output`  | `-o`  | No       | Output file (defaults to stdout)    |
 
 ## Spec Format
