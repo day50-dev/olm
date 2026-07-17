@@ -9,8 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-singleline = "singleline:main"
-olm = "singleline:main"
+olm = "olm:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
