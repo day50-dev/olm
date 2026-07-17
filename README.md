@@ -1,6 +1,6 @@
 <p align="center">
   <img width="300" alt="olm" src="https://github.com/user-attachments/assets/6dc40aea-4719-4e2e-a57b-585e2ef5ec49" /><br/>
-  <a href=https://pypi.org/project/streamdown><img src=https://badge.fury.io/py/streamdown.svg/></a>
+  <a href=https://pypi.org/project/onelinemcp><img src=https://badge.fury.io/py/onelinemcp.svg/></a>
 </p>
 
 **Olm** is a program that takes a simple text file and spits out a full blown MCP server. 
