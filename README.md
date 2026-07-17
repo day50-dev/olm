@@ -2,9 +2,20 @@
   <img width="300" alt="olm" src="https://github.com/user-attachments/assets/6dc40aea-4719-4e2e-a57b-585e2ef5ec49" />
 </p>
 
-**Olm** is a compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
+**Olm** is a program that takes a simple text file and spits out a full blown MCP server. 
 
-No boilerplate. No wrappers. Just `name:command` and go.
+Write your tools as one-liners, get a working Python or TypeScript server on the other end.
+
+```text
+#! List files in a directory
+ls:ls -la {path}
+
+#! Run in a sandbox
+sandbox_run:docker exec -it {container} "{command}"
+
+#! Run a custom bash command
+bash: /usr/bin/env bash -c "{command}"
+```
 
 ## Features
 
@@ -13,26 +24,6 @@ No boilerplate. No wrappers. Just `name:command` and go.
 - Generates Python (`FastMCP`) or TypeScript (`@modelcontextprotocol/sdk`)
 - Inline or standalone descriptions via the `#!` prefix
 
-## Installation
-
-```bash
-pip install onelinemcp
-```
-
-## Usage
-
-### 1. Write a `tools.txt`
-
-```text
-#! List files in a directory
-ls:ls -la {path}
-
-#! Check system uptime
-uptime:uptime
-
-#! Run a custom bash command
-bash: /usr/bin/env bash -c "{command}"
-```
 
 ### 2. Compile
 
