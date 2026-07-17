@@ -205,23 +205,23 @@ def main():
     parser = argparse.ArgumentParser(
         description="Compile a single-line spec into an MCP"
     )
-    parser.add_argument("-s", "--sl", required=True, help="Path to the single-line spec file")
+    parser.add_argument("spec", help="Path to the single-line spec file")
     parser.add_argument("-l", "--lang", required=True, choices=["py", "ts"], help="Output language")
     parser.add_argument(
         "--output", "-o", help="Output file (default: stdout)"
     )
     args = parser.parse_args()
 
-    if not os.path.isfile(args.sl):
-        print(f"Error: file not found: {args.sl}", file=sys.stderr)
+    if not os.path.isfile(args.spec):
+        print(f"Error: file not found: {args.spec}", file=sys.stderr)
         sys.exit(1)
 
-    tools = parse_tools_file(args.sl)
+    tools = parse_tools_file(args.spec)
     if not tools:
         print("Warning: no tools found in spec file", file=sys.stderr)
         sys.exit(0)
 
-    output = generate(tools, args.lang, os.path.basename(args.sl))
+    output = generate(tools, args.lang, os.path.basename(args.spec))
 
     if args.output:
         with open(args.output, "w") as f:
