@@ -1,8 +1,8 @@
 <p align="center">
-<img width="288" alt="singleline" src="https://github.com/user-attachments/assets/eb6cd032-be1c-48c8-845a-b0742023d298" />
+  <img width="350" alt="olm" src="https://github.com/user-attachments/assets/6dc40aea-4719-4e2e-a57b-585e2ef5ec49" />
 </p>
 
-**Singleline** is a compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
+**Olm** is a compiler that takes a text file and spits out an MCP server. Write your tools as one-liners, get a working Python or TypeScript server on the other end.
 
 No boilerplate. No wrappers. Just `name:command` and go.
 
