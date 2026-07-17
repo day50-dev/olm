@@ -6,6 +6,8 @@
 
 Write your tools as one-liners, get a working Python or TypeScript server on the other end.
 
+The comment above the command becomes the description field for the tool
+
 ```text
 #! List files in a directory
 ls:ls -la {path}

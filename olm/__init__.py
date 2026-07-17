@@ -3,8 +3,8 @@
 olm — Compile a tools.txt spec into MCP tool definitions.
 
 Usage:
-    olm --mcp tools.txt --lang python > tools.py
-    olm --mcp tools.txt --lang typescript > tools.ts
+    olm --mcp tools.txt --lang py > tools.py
+    olm --mcp tools.txt --lang ts > tools.ts
 """
 
 import argparse
@@ -191,8 +191,8 @@ def generate(tools: list[Tool], lang: str, source_file: str) -> str:
         t.py_kwargs = build_kwargs(t.params)
 
     env = Environment(loader=DictLoader({
-        "python": PYTHON_TEMPLATE,
-        "typescript": TYPESCRIPT_TEMPLATE,
+        "py": PYTHON_TEMPLATE,
+        "ts": TYPESCRIPT_TEMPLATE,
     }))
     tmpl = env.get_template(lang)
     return tmpl.render(tools=tools, source_file=source_file)
@@ -206,12 +206,7 @@ def main():
         description="Compile a single-line spec into an MCP"
     )
     parser.add_argument("-s", "--sl", required=True, help="Path to the single-line spec file")
-    parser.add_argument(
-        "--lang",
-        required=True,
-        choices=["python", "typescript"],
-        help="Output language",
-    )
+    parser.add_argument("-l", "--lang", required=True, choices=["py", "ts"], help="Output language")
     parser.add_argument(
         "--output", "-o", help="Output file (default: stdout)"
     )
