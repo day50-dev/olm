@@ -8,6 +8,19 @@ Olm (`onelinemcp`) compiles a simple text-based tool spec into a working MCP ser
 - Single dependency: `jinja2` (for code generation templates)
 - Entry point: `olm` CLI → `olm:main`
 
+### Spec Format Example
+
+```text
+#! Run a shell command
+bash:/usr/bin/env bash -c "{command}"
+#! Ping a host
+ping:ping -c {count} {host}
+#! Write content to a file
+write-file:echo "{content}" > {path}
+#! A tool with no params
+healthcheck:curl http://localhost:8080/health
+```
+
 ## Setup
 
 ```bash
